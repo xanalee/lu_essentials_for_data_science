@@ -1,4 +1,4 @@
-# Git/GitHub assignment prepraration
+# Git/GitHub assignment preparation
 
 ## Introduction
 
