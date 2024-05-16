@@ -91,17 +91,17 @@ class Profile:
             """
             return L/(1+np.exp(-k*(x-x0)))
 
-        rng = pd.Series(np.arange(-8,8,.1))
-        df = pd.DataFrame({'x':rng,
+        rng = pd.Series(np.arange(-8, 8, .1))
+        df = pd.DataFrame({'x': rng,
                            'lc': rng.apply(lambda x: lc(x, L=1, k=1, x0=0)),
-                           'relu': rng.apply(lambda x: np.max((0,x))),
+                           'relu': rng.apply(lambda x: np.max((0, x))),
                            'tanh': rng.apply(lambda x: np.tanh(x)),
-                           'bin': rng.apply(lambda x: 0 if x<0 else 1)
+                           'bin': rng.apply(lambda x: 0 if x < 0 else 1)
                            })
-        fig, axes = plt.subplots(2,2)  # figsize=(10,8)
+        fig, axes = plt.subplots(2, 2)  # figsize=(10,8)
         fig.tight_layout(pad=3.0)
         fig.suptitle("Activation functions")
-        lc_ = sb.lineplot(df, x='x', y='lc',ax=axes[0, 0],)
+        lc_ = sb.lineplot(df, x='x', y='lc', ax=axes[0, 0],)
         lc_.set(title='Sigmoid')
         tanh_ = sb.lineplot(df, x='x', y='tanh', ax=axes[0, 1])
         tanh_.set(title='Hyperbolic tangent')
